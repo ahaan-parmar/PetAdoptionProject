@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const dbAggregations = require('../utils/dbAggregations');
-const auth = require('../middleware/auth');
+const { protect, authorize } = require('../middleware/auth');
 
 /**
  * @route   GET /api/analytics/adoptions/category
  * @desc    Get adoption statistics by pet category
  * @access  Private (Admin/Shelter)
  */
-router.get('/adoptions/category', auth, async (req, res) => {
+router.get('/adoptions/category', protect, async (req, res) => {
   try {
     const result = await dbAggregations.getAdoptionsByCategory();
     res.json({ success: true, data: result });
@@ -22,7 +22,7 @@ router.get('/adoptions/category', auth, async (req, res) => {
  * @desc    Get adoption timeline statistics
  * @access  Private (Admin/Shelter)
  */
-router.get('/adoptions/timeline', auth, async (req, res) => {
+router.get('/adoptions/timeline', protect, async (req, res) => {
   try {
     const months = req.query.months ? parseInt(req.query.months) : 6;
     const result = await dbAggregations.getAdoptionTimeline(months);
@@ -37,16 +37,8 @@ router.get('/adoptions/timeline', auth, async (req, res) => {
  * @desc    Get shelter statistics
  * @access  Private (Admin only)
  */
-router.get('/shelters', auth, async (req, res) => {
+router.get('/shelters', protect, authorize('admin'), async (req, res) => {
   try {
-    // Check if user is admin
-    if (req.user.role !== 'admin') {
-      return res.status(403).json({ 
-        success: false, 
-        error: 'Access denied. Admin only.' 
-      });
-    }
-    
     const result = await dbAggregations.getShelterStatistics();
     res.json({ success: true, data: result });
   } catch (error) {
