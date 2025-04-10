@@ -75,9 +75,9 @@ const PawesomeApp = () => {
   const [activeTab, setActiveTab] = useState('featured');
   
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       {/* Navbar */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -138,24 +138,10 @@ const PawesomeApp = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-purple-50 to-pink-50 overflow-hidden">
+      <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <svg className="absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/4 lg:translate-x-1/3 xl:translate-y-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
-            <defs>
-              <pattern id="85737c0e-0916-41d7-917f-596dc7edfa27" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" className="text-pink-200" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
-          </svg>
-          <svg className="absolute left-0 top-0 transform -translate-x-1/2 -translate-y-1/2 lg:-translate-x-1/3 xl:-translate-y-1/4" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
-            <defs>
-              <pattern id="85737c0e-0916-41d7-917f-596dc7edfa28" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" className="text-purple-200" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa28)" />
-          </svg>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 to-pink-100/30" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiA4YzAgMi4yMS0xLjc5IDQtNCA0cy00LTEuNzktNC00IDEuNzktNCA0LTQgNCAxLjc5IDQgNHoiIGZpbGw9IiNlYjQ0ZmYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9nPjwvc3ZnPg==')] opacity-20" />
         </div>
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -163,19 +149,19 @@ const PawesomeApp = () => {
               <div className="sm:text-center lg:text-left">
                 <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                   <span className="block">Find your new</span>
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">furry friend</span>
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 animate-gradient-x">furry friend</span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                <p className="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   Thousands of adorable pets are waiting for their forever homes. Start your search today and discover the perfect companion for your family.
                 </p>
                 <div className="mt-8 sm:mt-10 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-full shadow">
-                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 md:py-4 md:text-lg md:px-10">
+                  <div className="rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 hover:from-purple-700 hover:via-pink-600 hover:to-indigo-700 md:py-4 md:text-lg md:px-10 transition-all duration-300">
                       Browse Pets
                     </a>
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-purple-700 bg-purple-100 hover:bg-purple-200 md:py-4 md:text-lg md:px-10">
+                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-purple-700 bg-purple-100 hover:bg-purple-200 md:py-4 md:text-lg md:px-10 transition-all duration-300">
                       How It Works
                     </a>
                   </div>
@@ -185,7 +171,7 @@ const PawesomeApp = () => {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full overflow-hidden rounded-bl-3xl">
+          <div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full overflow-hidden rounded-bl-3xl transform hover:scale-105 transition-transform duration-500">
             <img 
               className="h-full w-full object-cover" 
               src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
@@ -196,7 +182,7 @@ const PawesomeApp = () => {
       </div>
 
       {/* Stats Bar */}
-      <div className="bg-white shadow-sm">
+      <div className="bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3">
             <div className="sm:col-span-1">
@@ -216,7 +202,7 @@ const PawesomeApp = () => {
       </div>
 
       {/* Tabs */}
-      <div className="bg-white shadow-sm border-b sticky top-16 z-40">
+      <div className="bg-white/80 backdrop-blur-md shadow-sm border-b sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex overflow-x-auto">
             {['featured', 'dogs', 'cats', 'other'].map((tab) => (
